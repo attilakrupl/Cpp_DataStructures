@@ -21,6 +21,13 @@ namespace my
             using SizeType = typename std::allocator_traits<Base>::size_type;
             
         public:
+            Allocator() = default;
+
+            template <typename U>
+            Allocator( const Allocator<U>& other )
+                :Base( other )
+            {}
+
             template <typename U>
             struct rebind
             {
@@ -30,7 +37,7 @@ namespace my
             Pointer allocate(SizeType n)
             {
                 g_memory_used.fetch_add( n * sizeof(T));
-                return Base::allocate(n);               
+                return Base::allocate(n);
             }
             
             void deallocate(Pointer p, SizeType n)

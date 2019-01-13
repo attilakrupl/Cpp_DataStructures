@@ -10,17 +10,16 @@ int main(int argc, char** argv)
 {
     std::cout << "***** C++ Data Structures Test Class *****" << std::endl;
 
-    //std::cout << "************** Allocator *****************" << std::endl;
-    //std::cout << "Sofar this compiles only in GCC, not in VS" << std::endl;
+    std::cout << "************** Allocator *****************" << std::endl;
 
-    //allocatorTest<std::vector>();
-    //allocatorTest<std::list>();
-    //allocatorTest<SetWithDefaultComparator>();
+    allocatorTest<std::vector>();
+    allocatorTest<std::list>();
+    allocatorTest<SetWithDefaultComparator>();
 
     std::cout << "************** CoreCount *****************" << std::endl;
 
     unsigned int c = std::thread::hardware_concurrency();
-    std::cout << " number of cores: " << c << std::endl;
+    std::cout << "Number of my cores: " << c << std::endl;
 
     return 0;
 }
